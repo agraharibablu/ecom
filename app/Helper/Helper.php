@@ -58,6 +58,14 @@ if (!function_exists('multipleFile')) {
 }
 
 
+if (!function_exists('profileImage')) {
+
+    function errorMsg($msg){
+        return $msg;
+    }
+}
+
+
 if (!function_exists('pr')) {
     function pr($data)
     {

@@ -99,7 +99,7 @@
 
             <!-- Message Start -->
 
-            <a href="javascript:void(0);" class="pro-li dropdown-item"><span><img class="profile-small img-fluid img-circle" id="avatar" src="http://moneypartner.in/public/attachment/20211225154722.jpg " alt="User profile picture"></span> <span>{{ ucwords(Auth::user()->full_name)}}</span></a>
+            <a href="javascript:void(0);" class="pro-li dropdown-item"><span><img class="profile-small img-fluid img-circle" id="avatar1" src="http://moneypartner.in/public/attachment/20211225154722.jpg " alt="User profile picture"></span> <span>{{ ucwords(Auth::user()->full_name)}}</span></a>
 
             <a href="{{ url('admin/profile') }}" class="pro-li dropdown-item">
              <span><i class="far fa-user"></i></span> Profile
@@ -183,7 +183,7 @@
 
       <!-- /.content-header -->
 
-      <section class="content bg-white">
+      <section class="content">
 
         <div class="container-fluid">
 

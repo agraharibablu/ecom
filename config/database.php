@@ -94,7 +94,7 @@ return [
         'mongodb' => [
             'driver' => 'mongodb',
             'dsn' => env('DB_URI', 'mongodb+srv://callcenter:ZsQV4Vpihi6vVqAZ@cluster0.gcdem.mongodb.net/callcenter?retryWrites=true&w=majority'),
-            'database' => 'test',
+            'database' => 'ecom',
         ],
 
 

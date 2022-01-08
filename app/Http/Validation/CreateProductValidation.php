@@ -17,20 +17,19 @@ class CreateProductValidation extends FormRequest
     public function rules()
     {
         return [
-            'product_name'       => 'required|string|min:2|max:30',
-            'product_price'      => 'required|numeric|not_in:0',
-            'product_category'   => 'required|string|min:2|max:30',
-           // 'product_image'      => 'image',
-            'product_tag'        => 'required|string|max:30',
-            'product_description' => 'required|string|min:10',
+            'product_name' => 'required|string|min:2|max:30',
+            'price'        => 'required|numeric|not_in:0',
+            'category'     => 'required|string|min:2|max:30',
+            'tag'          => 'required|string|max:30',
+            'description'  => 'required|string|min:10',
         ];
     }
     public function messages()
     {
         return [
             'product_name.required' => 'Product Name field is Required.',
-            'product_name.string'=>'Product Name should be string.',
-            'product_name.max'=>'Product Name should not be maximum 30 Character.',
+            'product_name.string'   =>'Product Name should be string.',
+            'product_name.max'      =>'Product Name should not be maximum 30 Character.',
         ];
     }
 

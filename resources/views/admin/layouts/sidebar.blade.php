@@ -11,7 +11,7 @@
         <p class="text">Dashboard</p>
       </a>
     </li>
-<!-- 
+<!--
 
 
     <li class="nav-item">
@@ -21,13 +21,13 @@
       </a>
     </li> -->
     <li class="nav-item">
-      <a href="{{ url('admin/categories') }}" class="nav-link {{ (url()->full() == url('admin/categories'))? 'active':''}}">
+      <a href="{{ url('admin/category') }}" class="nav-link {{ (url()->full() == url('admin/category'))? 'active':''}}">
       <i class="far fa-file nav-icon text-success"></i>
         <p>Category</p>
       </a>
     </li>
     <li class="nav-item">
-      <a href="{{ url('admin/products') }}" class="nav-link {{ (url()->full() == url('admin/products'))? 'active':''}}">
+      <a href="{{ url('admin/product') }}" class="nav-link {{ (url()->full() == url('admin/product'))? 'active':''}}">
       <i class="nav-icon fas fa-folder text-warning"></i>
         <p>Products</p>
       </a>

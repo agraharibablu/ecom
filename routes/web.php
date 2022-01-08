@@ -22,13 +22,13 @@ Route::post('verify-mobile', [AdminLogin::class,'verifyMobile']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('dashboard', AdminDashboard::class);
- 
-    Route::resource('categories', AdminCategory::class);
+
+    Route::resource('category', AdminCategory::class);
     Route::get('category-ajax', [AdminCategory::class,'ajaxList']);
     Route::post('category_status', [AdminCategory::class,'categoryStatus']);
 
-  
-    Route::resource('products', AdminProduct::class);
+
+    Route::resource('product', AdminProduct::class);
     Route::get('product-ajax', [AdminProduct::class,'ajaxList']);
     Route::post('product-status', [AdminProduct::class,'productStatus']);
 
