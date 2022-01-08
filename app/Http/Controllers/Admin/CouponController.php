@@ -60,8 +60,9 @@ class CouponController extends Controller
 
         try {
             $coupon = $Coupon;
-            $coupon->name          = $request->name;
-            $coupon->status        = $request->status;
+            $coupon->name            = $request->name;
+            $coupon->terms_condition = $request->terms_condition;
+            $coupon->status          = $request->status;
 
             if (!empty($request->file('thumbnail')))
                 $coupon->thumbnail  = singleFile($request->file('thumbnail'), 'attachment/coupons');

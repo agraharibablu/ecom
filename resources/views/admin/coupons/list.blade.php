@@ -20,6 +20,7 @@
             <tr>
               <th>Sr.No</th>
               <th>Name</th>
+              <th>Coupon Code</th>
               <th>Image</th>
               <th>Terms&Condition</th>
               <th>Status</th>
@@ -38,6 +39,7 @@
             <tr>
               <td>{{ ++$key }}</td>
               <td>{{ $coupon->name }}</td>
+              <td>{{ $coupon->coupon_code }}</td>
               <td><img src="{{ (!empty($coupon->thumbnail))?asset('attachment/coupons/'.$coupon->thumbnail):asset('attachment/no-image.webp') }}" style="height:50px"></td>
               <td>{{ $coupon->terms_condition }}</td>
               <td>{!!$status!!}</td>
