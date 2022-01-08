@@ -32,6 +32,12 @@
         <p>Products</p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{ url('admin/coupons') }}" class="nav-link {{ (url()->full() == url('admin/coupons'))? 'active':''}}">
+      <i class="nav-icon fas fa-gift text-success"></i>
+        <p>Coupons</p>
+      </a>
+    </li>
     <!-- <li class="nav-item {{ (url()->full() == url('admin/bank-account') || url()->full() == url('admin/upi') || url()->full() == url('admin/qr-code'))?'menu-is-opening menu-open':''}}">
       <a href="javascript:void(0);" class="nav-link">
         <i class="nav-icon fas fa-money-bill-wave text-success"></i>
