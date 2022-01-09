@@ -113,59 +113,109 @@
 <div class="modal fade" id="add_category_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="heading_bank">Add category</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
 
       <!--for loader-->
       <div class="cover-loader-modal d-none">
         <div class="loader-modal"></div>
       </div>
 
-      <div class="modal-body" id="model-body">
-        <form id="add_category" action="{{ url('admin/category') }}" method="post">
-          @csrf
-          <div id="put"></div>
-          <div class="row">
+      <div class="modal-body">
 
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="category_name">Category Name</label>
-                <input type="text" name="category_name" class="form-control" id="category_name" placeholder="Enter category">
-                <span id="category_name_msg" class="custom-text-danger"></span>
-              </div>
+        <div class="modal-header p-0">
+          <div class="card-header p-0 border-bottom-0">
+            <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="category-tab" data-toggle="pill" href="#category" role="tab" aria-controls="category" aria-selected="true">Add Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="seo-tab" data-toggle="pill" href="#seo" role="tab" aria-controls="seo" aria-selected="false">SEO </a>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-              <div><img src="{{ asset('attachment/no-image.webp') }}" id="avatar" style="height:50px"></div>
-              <div class="form-group">
-                <label>Image</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" name="thumbnail" class="custom-file-input" id="imgInp" accept="image/png, image/gif, image/jpeg">
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+
+        <div id="model-body">
+
+          <form id="add_category" action="{{ url('admin/category') }}" method="post">
+            @csrf
+            <div id="put"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+
+                <!--start seo section -->
+                <div class="tab-content" id="custom-tabs-four-tabContent">
+
+                  <div class="tab-pane fade active show" id="category" role="tabpanel" aria-labelledby="category-tab">
+                    <div class="form-group">
+                      <label for="category_name">Category Name</label>
+                      <input type="text" name="category_name" class="form-control" id="category_name" placeholder="Enter category">
+                      <span id="category_name_msg" class="custom-text-danger"></span>
+                    </div>
+
+                    <div><img src="{{ asset('attachment/no-image.webp') }}" id="avatar" style="height:50px"></div>
+                    <div class="form-group">
+                      <label>Image</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" name="thumbnail" class="custom-file-input" id="imgInp" accept="image/png, image/gif, image/jpeg">
+                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                      </div>
+                      <span id="thumbnail_msg" class="custom-text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Status</label>
+                      <select class="form-control" name="status" id="status">
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <span id="thumbnail_msg" class="custom-text-danger"></span>
-              </div>
+                  <!--end category section -->
 
-              <div class="form-group">
-                <label>Status</label>
-                <select class="form-control" name="status" id="status">
-                  <option value="1">Active</option>
-                  <option value="0">Inactive</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-sm btn-success" id="submit_category">
+                  <!--start seo section-->
+                  <div class="tab-pane fade" id="seo" role="tabpanel" aria-labelledby="seo-tab">
+
+                    <div class="form-group">
+                      <label for="meta_title">Title</label>
+                      <input type="text" name="meta_title" class="form-control" id="meta_title" placeholder="Enter Title">
+                      <span id="meta_title_msg" class="custom-text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="meta_keyword">Keyword</label>
+                      <input type="text" name="meta_keyword" class="form-control" id="meta_keyword" placeholder="Enter Keyword">
+                      <span id="meta_keyword_msg" class="custom-text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="meta_description">Keyword</label>
+                      <textarea name="meta_description" class="form-control" id="meta_description" placeholder="Enter Description"></textarea>
+                      <span id="meta_description_msg" class="custom-text-danger"></span>
+                    </div>
+
+                  </div>
+                  <!--end seo section-->
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" value="Submit" class="btn btn-sm btn-success" id="submit_category">
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+
+        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <script>
@@ -176,8 +226,8 @@
     $('#heading_bank').html('Add Category');
     $('#put').html('');
     $('form#add_category').attr('action', url);
-    var imgurl= "{{ asset('attachment/no-image.webp')}}";
-    $('#avatar').attr('src',imgurl);
+    var imgurl = "{{ asset('attachment/no-image.webp')}}";
+    $('#avatar').attr('src', imgurl);
     $('#submit_category').val('Submit');
     $('#add_category_modal').modal('show');
   })
@@ -199,13 +249,13 @@
         // console.log(res);
         $('#category_name').val(res.category_name);
         $('#status').val(res.status);
-        if(res.thumbnail){
-          var imgurl = "{{ asset('attachment/category/')}}/"+res.thumbnail;
+        if (res.thumbnail) {
+          var imgurl = "{{ asset('attachment/category/')}}/" + res.thumbnail;
 
-        }else{
-          var imgurl= "{{ asset('attachment/no-image.webp')}}";
+        } else {
+          var imgurl = "{{ asset('attachment/no-image.webp')}}";
         }
-        $('#avatar').attr('src',imgurl);
+        $('#avatar').attr('src', imgurl);
 
         let urlU = '{{ url("admin/category") }}/' + id;
         $('#heading_bank').html('Edit Category');
@@ -263,9 +313,9 @@
         //for reset all field
         if (res.status == 'success') {
           $('form#add_category')[0].reset();
-          setTimeout(function(){
+          setTimeout(function() {
             location.reload();
-          },1000)
+          }, 1000)
         }
       }
     });
