@@ -28,6 +28,7 @@ class CouponController extends Controller
         try {
             $coupon = new Coupon();
             $coupon->name            = $request->name;
+            $coupon->price           = $request->price;
             $coupon->coupon_code     = uniqCode(8);
             $coupon->terms_condition = $request->terms_condition;
             $coupon->status          = $request->status;
@@ -61,6 +62,7 @@ class CouponController extends Controller
         try {
             $coupon = $Coupon;
             $coupon->name            = $request->name;
+            $coupon->price           = $request->price;
             $coupon->terms_condition = $request->terms_condition;
             $coupon->status          = $request->status;
 

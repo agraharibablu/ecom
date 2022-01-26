@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\ProductController as AdminProduct;
 use App\Http\Controllers\Admin\CategoryController as AdminCategory;
 use App\Http\Controllers\Admin\CouponController as AdminCoupon;
+use App\Http\Controllers\Admin\TemplateController as AdminTemplate;
 
 use App\Http\Controllers\Retailer\LoginController as RetailerLogin;
 
@@ -35,6 +36,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('coupons', AdminCoupon::class);
     Route::get('coupon-ajax', [AdminCoupon::class,'ajaxList']);
     Route::post('coupon-status', [AdminCoupon::class,'couponStatus']);
+
+    Route::resource('landing-pages', AdminTemplate::class);
+   // Route::post('landing-status', [AdminTemplate::class,'landingtStatus']);
 
     Route::post('logout',  [RetailerLogin::class, 'logout']);
 });

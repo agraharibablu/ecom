@@ -21,6 +21,7 @@
               <th>Sr.No</th>
               <th>Name</th>
               <th>Coupon Code</th>
+              <th>Price</th>
               <th>Image</th>
               <th>Terms&Condition</th>
               <th>Status</th>
@@ -40,6 +41,7 @@
               <td>{{ ++$key }}</td>
               <td>{{ $coupon->name }}</td>
               <td>{{ $coupon->coupon_code }}</td>
+              <td>{!!mSign($coupon->price)!!}</td>
               <td><img src="{{ (!empty($coupon->thumbnail))?asset('attachment/coupons/'.$coupon->thumbnail):asset('attachment/no-image.webp') }}" style="height:50px"></td>
               <td>{{ $coupon->terms_condition }}</td>
               <td>{!!$status!!}</td>
@@ -141,7 +143,11 @@
                 <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                 <span id="name_msg" class="custom-text-danger"></span>
               </div>
-
+              <div class="form-group">
+                <label for="price">Price</label>
+                 <input type="number" name="price" class="form-control" id="price" placeholder="Enter Price">
+                <span id="price_msg" class="custom-text-danger"></span>
+              </div>
               <div><img src="{{ asset('attachment/no-image.webp') }}" id="avatar" style="height:50px"></div>
               <div class="form-group">
                 <label>Image</label>
@@ -206,6 +212,7 @@
       success: function(res) {
         // console.log(res);
         $('#name').val(res.name);
+        $('#price').val(res.price);
         $('#terms_condition').val(res.terms_condition);
         $('#status').val(res.status);
         if(res.thumbnail){

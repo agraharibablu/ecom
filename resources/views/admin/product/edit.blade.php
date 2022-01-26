@@ -144,7 +144,7 @@
 
                 //for reset all field
                 if (res.status == 'success') {
-                    $('form#add-outlet')[0].reset();
+                    $('form#add-product')[0].reset();
                 }
             }
         });

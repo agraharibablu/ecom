@@ -195,7 +195,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="meta_description">Keyword</label>
+                      <label for="meta_description">Description</label>
                       <textarea name="meta_description" class="form-control" id="meta_description" placeholder="Enter Description"></textarea>
                       <span id="meta_description_msg" class="custom-text-danger"></span>
                     </div>
@@ -223,7 +223,7 @@
     e.preventDefault();
     $('form#add_category')[0].reset();
     let url = '{{ url("admin/category") }}';
-    $('#heading_bank').html('Add Category');
+    $('#category-tab').html('Add Category');
     $('#put').html('');
     $('form#add_category').attr('action', url);
     var imgurl = "{{ asset('attachment/no-image.webp')}}";
@@ -249,6 +249,9 @@
         // console.log(res);
         $('#category_name').val(res.category_name);
         $('#status').val(res.status);
+        $('#meta_title').val(res.meta_title);
+        $('#meta_keyword').val(res.meta_keyword);
+        $('#meta_description').val(res.meta_description);
         if (res.thumbnail) {
           var imgurl = "{{ asset('attachment/category/')}}/" + res.thumbnail;
 
@@ -258,7 +261,7 @@
         $('#avatar').attr('src', imgurl);
 
         let urlU = '{{ url("admin/category") }}/' + id;
-        $('#heading_bank').html('Edit Category');
+        $('#category-tab').html('Edit Category');
         $('#put').html('<input type="hidden" name="_method" value="PUT">');
         $('form#add_category').attr('action', urlU);
         $('#submit_category').val('Update');

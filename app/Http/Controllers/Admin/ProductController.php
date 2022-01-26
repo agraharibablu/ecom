@@ -126,13 +126,13 @@ class ProductController extends Controller
     {
 
         try {
-            $outlet = Product::find($request->id);
-            $outlet->status = (int)$request->status;
-            $outlet->save();
-            if ($outlet->status == 1)
-                return response(['status' => 'success', 'msg' => 'The Product is Active!', 'val' => $outlet->status]);
+            $product = Product::find($request->id);
+            $product->status = (int)$request->status;
+            $product->save();
+            if ($product->status == 1)
+                return response(['status' => 'success', 'msg' => 'The Product is Active!', 'val' => $product->status]);
 
-            return response(['status' => 'success', 'msg' => 'This Product is Inactive!', 'val' => $outlet->status]);
+            return response(['status' => 'success', 'msg' => 'This Product is Inactive!', 'val' => $product->status]);
         } catch (Exception $e) {
             return response(['status' => 'error', 'msg' => errorMsg($e->getMessage())]);
         }
