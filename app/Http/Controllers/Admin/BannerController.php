@@ -29,14 +29,11 @@ class BannerController extends Controller
     {
         try {
 
-            $title = Str::slug($request->name);
-
             $banner = new Banner();
             $banner->name               = $request->name;
             $banner->status             = $request->status;
             $banner->image              = $request->image;
-            $banner->find               = $request->find;
-            $banner->url                = url("/admin/banners/{$title}");
+            $banner->url               = $request->url;      
             
             //uploade single image
             if (!empty($request->file('thumbnail')))
@@ -65,14 +62,12 @@ class BannerController extends Controller
     {
 
         try {
-            $title = Str::slug($request->name);
-
+         
             $banner = $Banner;
             $banner->name               = $request->name;
             $banner->status             = $request->status;
             $banner->image              = $request->image;
-            $banner->find               = $request->find;
-            $banner->url                = url("/admin/banners/{$title}");
+            $banner->url               = $request->url;
 
             if (!empty($request->file('thumbnail')))
                 $banner->thumbnail  = singleFile($request->file('thumbnail'), 'attachment/Banner');

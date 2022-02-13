@@ -155,9 +155,9 @@
                     <span id="thumbnail_msg" class="custom-text-danger"></span>
                   </div>
                   <div class="form-group">
-                    <label for="find">Search Name</label>
-                    <input type="text" name="find" class="form-control" id="find" placeholder="Enter name">
-                    <span id="find_msg" class="custom-text-danger"></span>
+                    <label for="url">URL</label>
+                    <input type="text" name="url" class="form-control" id="url" placeholder="Enter URL">
+                    <span id="url_msg" class="custom-text-danger"></span>
                   </div>
                   <div class="form-group">
                     <label>Status</label>
