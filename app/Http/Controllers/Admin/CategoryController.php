@@ -27,9 +27,11 @@ class CategoryController extends Controller
     {
         try {
             $category = new Category();
-            $category->category_name = $request->category_name;
-            $category->status        = $request->status;
-
+            $category->category_name      = $request->category_name;
+            $category->status             = $request->status;
+            $category->meta_title         = $request->meta_title;
+            $category->meta_keyword       = $request->meta_keyword;
+            $category->meta_description   = $request->meta_description;
             //uploade single image
             if (!empty($request->file('thumbnail')))
                 $category->thumbnail  = singleFile($request->file('thumbnail'), 'attachment/category');
@@ -58,8 +60,11 @@ class CategoryController extends Controller
 
         try {
             $category = $Category;
-            $category->category_name = $request->category_name;
-            $category->status        = $request->status;
+            $category->category_name      = $request->category_name;
+            $category->status             = $request->status;
+            $category->meta_title         = $request->meta_title;
+            $category->meta_keyword       = $request->meta_keyword;
+            $category->meta_description   = $request->meta_description;
 
             if (!empty($request->file('thumbnail')))
                 $category->thumbnail  = singleFile($request->file('thumbnail'), 'attachment/category');

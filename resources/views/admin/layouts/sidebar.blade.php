@@ -38,6 +38,18 @@
         <p>Coupons</p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{ url('admin/landing-pages') }}" class="nav-link {{ (url()->full() == url('admin/landing-pages'))? 'active':''}}">
+      <i class="nav-icon fas fa-file text-primary"></i>
+        <p>Landing Page</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ url('admin/banners') }}" class="nav-link {{ (url()->full() == url('admin/banners'))? 'active':''}}">
+      <i class="nav-icon fas fa-image text-success"></i>
+        <p>Banners</p>
+      </a>
+    </li>
     <!-- <li class="nav-item {{ (url()->full() == url('admin/bank-account') || url()->full() == url('admin/upi') || url()->full() == url('admin/qr-code'))?'menu-is-opening menu-open':''}}">
       <a href="javascript:void(0);" class="nav-link">
         <i class="nav-icon fas fa-money-bill-wave text-success"></i>

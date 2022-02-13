@@ -6,35 +6,47 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\ProductController as AdminProduct;
 use App\Http\Controllers\Admin\CategoryController as AdminCategory;
 use App\Http\Controllers\Admin\CouponController as AdminCoupon;
+use App\Http\Controllers\Admin\TemplateController as AdminTemplate;
+use App\Http\Controllers\Admin\BannerController as AdminBanner;
+
+use App\Http\Controllers\Frontend\HomeController as FrontendHome;
 
 use App\Http\Controllers\Retailer\LoginController as RetailerLogin;
 
 use Illuminate\Support\Facades\Route;
 
 
- Route::group(['middleware' => 'adminRedirect'], function () {
-    Route::get('/',[AdminLogin::class,'index']);
+Route::group(['middleware' => 'adminRedirect'], function () {
+    Route::get('/', [AdminLogin::class, 'index']);
     Route::resource('/login', AdminLogin::class);
     Route::resource('/register', RegisterController::class);
 });
 
-Route::get('otp-sent',       [AdminLogin::class,'otpSent']);
-Route::post('verify-mobile', [AdminLogin::class,'verifyMobile']);
+Route::resource('home', FrontendHome::class);
+
+Route::get('otp-sent',       [AdminLogin::class, 'otpSent']);
+Route::post('verify-mobile', [AdminLogin::class, 'verifyMobile']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('dashboard', AdminDashboard::class);
 
     Route::resource('category', AdminCategory::class);
-    Route::get('category-ajax', [AdminCategory::class,'ajaxList']);
-    Route::post('category_status', [AdminCategory::class,'categoryStatus']);
+    Route::get('category-ajax', [AdminCategory::class, 'ajaxList']);
+    Route::post('category_status', [AdminCategory::class, 'categoryStatus']);
 
     Route::resource('product', AdminProduct::class);
-    Route::get('product-ajax', [AdminProduct::class,'ajaxList']);
-    Route::post('product-status', [AdminProduct::class,'productStatus']);
+    Route::get('product-ajax', [AdminProduct::class, 'ajaxList']);
+    Route::post('product-status', [AdminProduct::class, 'productStatus']);
 
     Route::resource('coupons', AdminCoupon::class);
-    Route::get('coupon-ajax', [AdminCoupon::class,'ajaxList']);
-    Route::post('coupon-status', [AdminCoupon::class,'couponStatus']);
+    Route::get('coupon-ajax', [AdminCoupon::class, 'ajaxList']);
+    Route::post('coupon-status', [AdminCoupon::class, 'couponStatus']);
+
+    Route::resource('landing-pages', AdminTemplate::class);
+    // Route::post('landing-status', [AdminTemplate::class,'landingtStatus']);
+
+    Route::resource('banners', AdminBanner::class);
+    Route::post('banner-status', [AdminBanner::class, 'bannerStatus']);
 
     Route::post('logout',  [RetailerLogin::class, 'logout']);
 });

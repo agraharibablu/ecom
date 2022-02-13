@@ -1,0 +1,449 @@
+@media (max-width: 765px) {
+  .product-purchase .img-container {
+    display: flex;
+    justify-content: center;
+  }
+  .product-purchase .img-container .img-fluid {
+    max-width: 100%;
+  }
+
+  .product-purchase .product-buy-btn {
+    padding: 7px 14px;
+    font-size: 14px;
+  }
+
+  .main {
+    padding: 0px 10px;
+  }
+  .header-container .logo-container {
+    width: 150px;
+  }
+
+  .banner-content-detail {
+    margin-left: 0px;
+  }
+
+  .header-container .cta-container h1 {
+    color: #dfcaac;
+    margin-right: 0px;
+    font-size: 17px;
+    margin-bottom: 0;
+  }
+
+  .header-container .cta-container a {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-container .cta-container .icon-container {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .header-container .cta-container .icon-container img {
+    width: 50%;
+    color: #dfcaac;
+  }
+
+  .shape {
+    width: 150px;
+    height: 150px;
+  }
+  .banner-section {
+    padding: 17px 0;
+  }
+  .banner-content h1.banner-heading {
+    font-family: "agne", sans-serif;
+    font-size: 26px;
+    text-align: center;
+  }
+  .banner-bg-container {
+    width: 50px;
+    height: 50px;
+  }
+  .banner-content h1.banner-heading span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+  }
+  .banner-content .banner-des p {
+    font-size: 11px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .banner-content .banner-des {
+    width: 100%;
+  }
+  .banner-btn-container {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner-btn-container .banner-btn {
+    padding: 3px 15px;
+    border-radius: 5px;
+    font-size: 19px;
+  }
+  .banner-btn-container .banner-btn i {
+    font-size: 15px;
+  }
+
+  .banner-icon-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+  .banner-icon-container .icon {
+    width: 40px;
+    margin-bottom: 5px;
+  }
+
+  .icon-container .icon-title {
+    font-size: 16px;
+  }
+
+  .section-title h1 {
+    font-size: 23px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .section-title p.sec-para {
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+  .section-title {
+    margin-bottom: 15px;
+  }
+  .box-container .icon-container {
+    width: 50px;
+  }
+  .box-container .icon-title h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0px;
+    margin-bottom: 0;
+  }
+  .box-container h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: 0px;
+    color: #222;
+    line-height: 1.6;
+  }
+  /* .section-1 .row > * {
+    padding-right: 2px;
+    padding-left: 2px;
+  } */
+  .box-container {
+    padding: 10px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    min-height: 135px;
+  }
+
+  .box-container p {
+    font-size: 12px;
+  }
+  .orderon-wrapper .order-on span {
+    font-size: 12px;
+  }
+  .orderon-wrapper .order-on img {
+    width: 20px;
+    margin-left: 10px;
+  }
+  .product-feature-contianer .icon {
+    width: 50px;
+  }
+
+  .product-feature-contianer .icon img {
+    width: 100%;
+  }
+
+  .product-feature-pointer .product-feature-contianer .product-feature p {
+    font-size: 10px;
+    margin-bottom: 0;
+  }
+  .product-feature-pointer .product-feature-contianer .icon {
+    margin-right: 10px;
+  }
+
+  .product-feature-pointer li {
+    margin-bottom: 5px;
+  }
+
+  .product-feature {
+    width: 112px;
+  }
+  /* .product-feature-pointer .product-feature-contianer {
+    align-items: flex-start;
+  } */
+
+  .testimonials-box {
+    padding: 10px 5px;
+    border-radius: 10px;
+  }
+
+  .testimonials-box .icon-container {
+    width: 35px;
+
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  .testimonials-name p {
+    font-size: 8px;
+    margin-bottom: 0px;
+  }
+
+  .testimonials-name span {
+    font-size: 7px;
+  }
+
+  .testimonials-start-contianer {
+    margin-top: 0px;
+  }
+
+  .testimonials-mgs-container p {
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+  .section-title-bg h1 {
+    font-size: 16px;
+  }
+
+  .product-section {
+    margin-top: 40px;
+  }
+
+  #products {
+    margin-top: 40px;
+  }
+
+  .product-cta-container a {
+    font-size: 15px;
+  }
+
+  #products .owl-nav {
+    display: none;
+  }
+
+  #testimonials .owl-nav {
+    display: none;
+  }
+  .product-details .product-title h1 {
+    font-size: 10px;
+    margin-bottom: 3px;
+
+    letter-spacing: 0px;
+  }
+  /* .product-details {
+    margin-top: 10px;
+  } */
+  .product-sub-heading p {
+    font-size: 8px;
+  }
+
+  .category-section {
+    margin-top: 20px;
+  }
+
+  .category-section .section-title-bg {
+    margin-bottom: 40px;
+  }
+
+  .category-container a .category-title {
+    margin-top: 10px;
+  }
+  .category-container a .category-title h2 {
+    letter-spacing: 0px;
+    font-size: 15px;
+  }
+
+  /* .category-section .row > * {
+    padding-right: 4px;
+    padding-left: 4px;
+  } */
+
+  .video-container {
+    margin-top: 40px;
+  }
+
+  .video-container iframe {
+    height: 250px;
+  }
+  .social-link {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .social-link a {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  .navigation-container ul {
+    padding-left: 0;
+    margin-top: 40px;
+  }
+  .navigation-container ul li a {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .copyright-content {
+    width: 100%;
+  }
+  .copyright-content p {
+    font-size: 8px;
+    text-align: left;
+    margin-bottom: 0px;
+  }
+  .copyright-container {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* margin: 10px 0px 10px; */
+    margin: 0px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .copyright-container .imp-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .copyright-container .imp-link a {
+    font-size: 8px;
+  }
+  .copyright-container .imp-link a:first-child {
+    margin-right: 5px;
+  }
+
+  .banner-bg-container-1 {
+    position: absolute;
+    top: 47%;
+    right: 0px;
+    filter: blur(3px);
+    width: 50px;
+    display: none;
+  }
+  .banner-content .banner-des {
+    margin-top: 0px;
+  }
+  .banner-icon-container {
+    margin-left: 0;
+  }
+
+  .banner-bg-container-2 {
+    width: 70px;
+  }
+
+  .banner-bg-container-3 {
+    position: absolute;
+    top: 65%;
+    left: -165px;
+    width: 206px;
+  }
+
+  .navigation-container ul li:not(:last-child) a::after {
+    position: absolute;
+    content: "|";
+    top: -2px;
+    right: -7px;
+  }
+
+  .product-feature-pointer ul {
+    padding-left: 0;
+  }
+
+  #category {
+    margin-top: 20px;
+  }
+  #category .owl-dots {
+    top: -50px;
+  }
+
+  #category .owl-dots span {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  .section-top-gap {
+    margin-top: 18px;
+  }
+
+  .orderon-wrapper .order-on {
+    margin-top: 20px;
+  }
+  .testimonials-section {
+    margin-top: 15px;
+  }
+
+  .testimonials-start-contianer .start-container {
+    font-size: 8px;
+  }
+
+  /* .testimonials-box {
+    margin: 0;
+  } */
+  .footer-section {
+    margin-top: 50px;
+  }
+  .box-container .icon-container {
+    margin-bottom: 5px;
+  }
+  .footer-section {
+    border-top: 2px solid #a1af3e;
+  }
+  .f-logo-wrapper {
+    top: -30px;
+  }
+  .f-logo {
+    width: 50px;
+    position: relative;
+  }
+
+  .f-logo::after {
+    width: 30px;
+    height: 100%;
+    content: "";
+    background-color: #f8decf;
+    position: absolute;
+    top: 0;
+    right: -30px;
+  }
+  .f-logo::before {
+    width: 30px;
+    height: 100%;
+    content: "";
+    background-color: #f8decf;
+    position: absolute;
+    top: 0;
+    left: -30px;
+  }
+
+  .product-feature-pointer .product-feature-contianer .icon img {
+    min-width: 40px;
+    max-width: 40px;
+  }
+  .product-feature-pointer .product-feature-contianer .icon {
+    width: auto;
+  }
+
+  .product-feature-img img {
+    max-width: 121%;
+  }
+}

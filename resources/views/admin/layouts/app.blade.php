@@ -280,7 +280,8 @@
   <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 
   <script src="{{ asset('assets') }}/custom/custom_function.js"></script>
-
+  <!-- <script src="//cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script> -->
+  <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
   <script>
     -
 
