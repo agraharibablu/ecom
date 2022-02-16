@@ -8,30 +8,32 @@ use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Http\Validation\CreateSettingValidation;
 
-class SettingsController extends Controller
+class SettingController extends Controller
 {
 
     public function index()
     {
         try {
-            $data['setting'] = Setting::Where('id','6209068aadb21cf188f1c438')->first();
+            $data['setting'] = Setting::Where('_id','6209068aadb21cf188f1c438')->first();
+         
             return view('admin.setting.edit', $data);
         } catch (Exception $e) {
             return redirect('500')->with($e->getMessage());
         }
     }
-   
 
-    public function update(CreateSettingValidation $request, $id)
+
+    public function update(CreateSettingValidation $request,$id)
     {
 
         try {
-            $template =  Setting::find('6209068aadb21cf188f1c438');
-            $template->email       = $request->title;
+            $template =  Setting::find($id);
+            $template->email       = $request->email;
             $template->facebook    = $request->facebook;
             $template->instagram   = $request->instagram;
             $template->youtube     = $request->youtube;
             $template->linkedin    = $request->linkedin;
+            $template->twitter    = $request->twitter;
 
             if ($template->update())
                 return response(['status' => 'success', 'msg' => 'Media Settings Updated Successfully!']);

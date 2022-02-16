@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategory;
 use App\Http\Controllers\Admin\CouponController as AdminCoupon;
 use App\Http\Controllers\Admin\TemplateController as AdminTemplate;
 use App\Http\Controllers\Admin\BannerController as AdminBanner;
-
+use App\Http\Controllers\Admin\SettingController as AdminSetting;
 use App\Http\Controllers\Frontend\HomeController as FrontendHome;
 
 use App\Http\Controllers\Retailer\LoginController as RetailerLogin;
@@ -43,7 +43,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('coupon-status', [AdminCoupon::class, 'couponStatus']);
 
     Route::resource('landing-pages', AdminTemplate::class);
-    // Route::post('landing-status', [AdminTemplate::class,'landingtStatus']);
+  
+    Route::resource('settings', AdminSetting::class);
 
     Route::resource('banners', AdminBanner::class);
     Route::post('banner-status', [AdminBanner::class, 'bannerStatus']);

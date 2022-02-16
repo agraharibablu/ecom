@@ -50,6 +50,12 @@
         <p>Banners</p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{ url('admin/settings') }}" class="nav-link {{ (url()->full() == url('admin/settings'))? 'active':''}}">
+      <i class="nav-icon fas fa-icons text-red"></i>
+        <p>Social Settings</p>
+      </a>
+    </li>
     <!-- <li class="nav-item {{ (url()->full() == url('admin/bank-account') || url()->full() == url('admin/upi') || url()->full() == url('admin/qr-code'))?'menu-is-opening menu-open':''}}">
       <a href="javascript:void(0);" class="nav-link">
         <i class="nav-icon fas fa-money-bill-wave text-success"></i>
