@@ -70,7 +70,7 @@
 
       <div class="col-md-6">
 
-      <div><img src="{{ (!empty($product->thumbnail))?asset('attachment/prodct/'.$product->thumbnail):asset('attachment/no-image.webp') }}" id="avatar" style="height:50px"></div>
+      <div><img src="{{ (!empty($product->thumbnail))?asset('attachment/product/'.$product->thumbnail):asset('attachment/no-image.webp') }}" id="avatar" style="height:50px"></div>
 
         <label for="exampleInputFile">Thumbnail</label>
         <div class="input-group">
