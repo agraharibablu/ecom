@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategory;
 use App\Http\Controllers\Admin\CouponController as AdminCoupon;
 use App\Http\Controllers\Admin\TemplateController as AdminTemplate;
 use App\Http\Controllers\Admin\BannerController as AdminBanner;
+use App\Http\Controllers\Admin\TestimonialController as AdminTestimonial;
 use App\Http\Controllers\Admin\SettingController as AdminSetting;
 use App\Http\Controllers\Frontend\HomeController as FrontendHome;
 
@@ -48,6 +49,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::resource('banners', AdminBanner::class);
     Route::post('banner-status', [AdminBanner::class, 'bannerStatus']);
+
+    Route::resource('testimonials', AdminTestimonial::class);
+    Route::post('testimonial-status', [AdminTestimonial::class, 'testimonialStatus']);
 
     Route::post('logout',  [RetailerLogin::class, 'logout']);
 });

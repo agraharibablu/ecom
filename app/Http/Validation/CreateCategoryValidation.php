@@ -17,7 +17,7 @@ class CreateCategoryValidation extends FormRequest
     public function rules()
     {
         return [
-            'category_name'  => 'required|string|min:2|max:30', 
+            'category_name'     => 'required|string|min:2|max:30', 
             'meta_title'        => 'nullable|string',
             'meta_keyword'      => 'nullable|string',
             'meta_description'  => 'nullable|string', 

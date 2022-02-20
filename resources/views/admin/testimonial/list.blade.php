@@ -9,7 +9,7 @@
       <div class="card-header">
         <h3 class="card-title">List</h3>
         <div class="card-tools">
-          <a href="javascript:void(0);" class="btn btn-sm btn-success mr-4" id="create_user"><i class="fas fa-plus-circle"></i>&nbsp;Add</a>
+          <a href="javascript:void(0);" class="btn btn-sm btn-success mr-4" id="create_testimonial"><i class="fas fa-plus-circle"></i>&nbsp;Add</a>
         </div>
       </div>
 
@@ -28,25 +28,24 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($users as $key=>$user)
+            @foreach($testimonials as $key=>$testimonial)
             <?php
-            if ($user->status == 1) {
-              $status = ' <a href="javascript:void(0);"><span class="badge badge-success activeVer" id="active_' . $user->_id . '" _id="' . $user->_id . '" val="0">Active</span></a>';
+            if ($testimonial->status == 1) {
+              $status = ' <a href="javascript:void(0);"><span class="badge badge-success activeVer" id="active_' . $testimonial->_id . '" _id="' . $testimonial->_id . '" val="0">Active</span></a>';
             } else {
-              $status = ' <a href="javascript:void(0)"><span class="badge badge-danger activeVer" id="active_' . $user->_id . '" _id="' . $user->_id . '" val="1">Inactive</span></a>';
+              $status = ' <a href="javascript:void(0)"><span class="badge badge-danger activeVer" id="active_' . $testimonial->_id . '" _id="' . $testimonial->_id . '" val="1">Inactive</span></a>';
             }
             ?>
             <tr>
               <td>{{ ++$key }}</td>
-              <td>{{ $user->name }}</td>
-              <td>{{ $user->user_code }}</td>
-              <td>{!!mSign($user->price)!!}</td>
-              <td><img src="{{ (!empty($user->thumbnail))?asset('attachment/users/'.$user->thumbnail):asset('attachment/no-image.webp') }}" style="height:50px"></td>
-              <td>{{ $user->terms_condition }}</td>
+              <td>{{ ucwords($testimonial->name) }}</td>
+              <td>{{ ucwords($testimonial->title) }}</td>
+              <td>{!! ucwords($testimonial->designation) !!}</td>
+              <td>{{ ucwords($testimonial->description) }}</td>
               <td>{!!$status!!}</td>
-              <td><a href="javascript:void(0);" class="text-info edit_user" data-toggle="tooltip" data-placement="bottom" title="Edit" user_id="{{ $user->_id }}"><i class="far fa-edit"></i></a>&nbsp;&nbsp;
+              <td><a href="javascript:void(0);" class="text-info edit_testimonial" data-toggle="tooltip" data-placement="bottom" title="Edit" testimonial_id="{{ $testimonial->_id }}"><i class="far fa-edit"></i></a>&nbsp;&nbsp;
 
-                <a href="javascript:void(0);" class="text-danger remove_user" data-toggle="tooltip" data-placement="bottom" title="Remove" user_id="{{ $user->_id }}"><i class="fas fa-trash"></i></a>
+                <a href="javascript:void(0);" class="text-danger remove_testimonial" data-toggle="tooltip" data-placement="bottom" title="Remove" testimonial_id="{{ $testimonial->_id }}"><i class="fas fa-trash"></i></a>
               </td>
             </tr>
             @endforeach
@@ -67,9 +66,9 @@
   $(document).ready(function() {
 
 
-    $(document).on('click', '.remove_user', function() {
-      var id = $(this).attr('user_id');
-      var url = "{{ url('admin/users') }}/" + id;
+    $(document).on('click', '.remove_testimonial', function() {
+      var id = $(this).attr('testimonial_id');
+      var url = "{{ url('admin/testimonials') }}/" + id;
       var tr = $(this).parent().parent();
       removeRecord(tr, url);
     })
@@ -78,7 +77,7 @@
       var id = $(this).attr('_id');
       var val = $(this).attr('val');
       $.ajax({
-        'url': "{{ url('admin/user-status') }}",
+        'url': "{{ url('admin/testimonial-status') }}",
         data: {
           "_token": "{{ csrf_token() }}",
           'id': id,
@@ -115,11 +114,11 @@
 @push('modal')
 
 <!-- Modal -->
-<div class="modal fade" id="add_user_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="add_testimonial_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="heading_user">Add Users</h5>
+        <h5 class="modal-title" id="heading_testimonial">Add Testimonial</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -131,37 +130,31 @@
       </div>
 
       <div class="modal-body" id="model-body">
-        <form id="add_user" action="{{ url('admin/users') }}" method="post">
+        <form id="add_testimonial" action="{{ url('admin/testimonials') }}" method="post">
           @csrf
           <div id="put"></div>
           <div class="row">
 
             <div class="col-md-12">
               <div class="form-group">
-                <label for="name">user Name</label>
+                <label for="name">Name</label>
                 <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                 <span id="name_msg" class="custom-text-danger"></span>
               </div>
               <div class="form-group">
-                <label for="price">Price</label>
-                 <input type="number" name="price" class="form-control" id="price" placeholder="Enter Price">
-                <span id="price_msg" class="custom-text-danger"></span>
-              </div>
-              <div><img src="{{ asset('attachment/no-image.webp') }}" id="avatar" style="height:50px"></div>
-              <div class="form-group">
-                <label>Image</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" name="thumbnail" class="custom-file-input" id="imgInp" accept="image/png, image/gif, image/jpeg">
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                  </div>
-                </div>
-                <span id="thumbnail_msg" class="custom-text-danger"></span>
+                <label for="title">Title</label>
+                 <input type="title" name="title" class="form-control" id="title" placeholder="Enter Title">
+                <span id="title_msg" class="custom-text-danger"></span>
               </div>
               <div class="form-group">
-                <label for="terms_condition">Terms & Condition</label>
-                  <textarea name="terms_condition" class="form-control" id="terms_condition" placeholder="Enter Terms & condition" rows="4"></textarea>
-                <span id="terms_condition_msg" class="custom-text-danger"></span>
+                <label for="designation">Designation</label>
+                 <input type="designation" name="designation" class="form-control" id="designation" placeholder="Enter Designation">
+                <span id="designation_msg" class="custom-text-danger"></span>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                  <textarea name="description" class="form-control" id="description" placeholder="Enter Description" rows="4"></textarea>
+                <span id="description_msg" class="custom-text-danger"></span>
               </div>
               <div class="form-group">
                 <label>Status</label>
@@ -171,7 +164,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-sm btn-success" id="submit_user">
+                <input type="submit" value="Submit" class="btn btn-sm btn-success" id="submit_testimonial">
               </div>
             </div>
           </div>
@@ -182,24 +175,22 @@
 </div>
 
 <script>
-  $('#create_user').click(function(e) {
+  $('#create_testimonial').click(function(e) {
     e.preventDefault();
-    $('form#add_user')[0].reset();
-    let url = '{{ url("admin/users") }}';
-    $('#heading_user').html('Add user');
+    $('form#add_testimonial')[0].reset();
+    let url = '{{ url("admin/testimonials") }}';
+    $('#heading_testimonial').html('Add Testimonial');
     $('#put').html('');
-    $('form#add_user').attr('action', url);
-    var imgurl= "{{ asset('attachment/no-image.webp')}}";
-    $('#avatar').attr('src',imgurl);
-    $('#submit_user').val('Submit');
-    $('#add_user_modal').modal('show');
+    $('form#add_testimonial').attr('action', url);
+    $('#submit_testimonial').val('Submit');
+    $('#add_testimonial_modal').modal('show');
   })
 
 
-  $(document).on('click', '.edit_user', function(e) {
+  $(document).on('click', '.edit_testimonial', function(e) {
     e.preventDefault();
-    var id = $(this).attr('user_id');
-    var url = "{{ url('admin/users') }}/" + id + "/edit";
+    var id = $(this).attr('testimonial_id');
+    var url = "{{ url('admin/testimonials') }}/" + id + "/edit";
 
     $.ajax({
       url: url,
@@ -211,23 +202,17 @@
       success: function(res) {
         // console.log(res);
         $('#name').val(res.name);
-        $('#price').val(res.price);
-        $('#terms_condition').val(res.terms_condition);
+        $('#title').val(res.price);
+        $('#designation').val(res.designation);
+        $('#description').val(res.description);
         $('#status').val(res.status);
-        if(res.thumbnail){
-          var imgurl = "{{ asset('attachment/users/')}}/"+res.thumbnail;
 
-        }else{
-          var imgurl= "{{ asset('attachment/no-image.webp')}}";
-        }
-        $('#avatar').attr('src',imgurl);
-
-        let urlU = '{{ url("admin/users") }}/' + id;
-        $('#heading_user').html('Edit user');
+        let urlU = '{{ url("admin/testimonials") }}/' + id;
+        $('#heading_testimonial').html('Edit Testimonial');
         $('#put').html('<input type="hidden" name="_method" value="PUT">');
-        $('form#add_user').attr('action', urlU);
-        $('#submit_user').val('Update');
-        $('#add_user_modal').modal('show');
+        $('form#add_testimonial').attr('action', urlU);
+        $('#submit_testimonial').val('Update');
+        $('#add_testimonial_modal').modal('show');
       },
 
       error: function(error) {
@@ -237,7 +222,7 @@
   });
 
   /*start form submit functionality*/
-  $("form#add_user").submit(function(e) {
+  $("form#add_testimonial").submit(function(e) {
     e.preventDefault();
     formData = new FormData(this);
     var url = $(this).attr('action');
@@ -277,7 +262,7 @@
 
         //for reset all field
         if (res.status == 'success') {
-          $('form#add_user')[0].reset();
+          $('form#add_testimonial')[0].reset();
           setTimeout(function(){
             location.reload();
           },1000)

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\PaymentMode;
+namespace App\Models;
 
-use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Upi extends BaseModel
+class Testimonial extends BaseModel
 {
     use HasFactory;
 
@@ -13,18 +13,22 @@ class Upi extends BaseModel
 
         return $query->count();
         }
-
+    
         public function scopeLikeColumn($query,$val){
-
+    
             $query->where('name', 'like', "%$val%");
-            $query->orWhere('upi_id', 'like', "%$val%");
+            $query->orWhere('designation', 'like', "%$val%");
+            $query->orWhere('title', 'like', "%$val%");
+            $query->orWhere('description', 'like', "%$val%");
             return $query->count();
         }
-
+    
         public function scopeGetResult($query,$val){
-
+    
             $query->where('name', 'like', "%$val%");
-            $query->orWhere('upi_id', 'like', "%$val%");
+            $query->orWhere('designation', 'like', "%$val%");
+            $query->orWhere('title', 'like', "%$val%");
+            $query->orWhere('description', 'like', "%$val%");
             return $query->get();
         }
 }

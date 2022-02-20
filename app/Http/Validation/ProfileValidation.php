@@ -31,8 +31,8 @@ class ProfileValidation extends FormRequest
             ];
         } else {
             return [
-                'retailer_name'   => 'required|string|max:30',
-                'mobile_no'       => 'required|numeric|digits:10',
+                'retailer_name'    => 'required|string|max:30',
+                'mobile_no'        => 'required|numeric|digits:10',
                 'alternate_number' => 'nullable|numeric|digits:10',
                 'email'            => 'required|email|max:30',
                 'gender'           => 'required'
