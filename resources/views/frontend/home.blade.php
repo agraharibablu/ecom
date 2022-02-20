@@ -205,7 +205,7 @@ Welcome Rooted Active Naturals
 
             <div class="col-md-3">
                 <div class="shop-btn-container">
-                    <a href="#" class="shop-btn">Shop All</a>
+                    <a href="/products" class="shop-btn">Shop All</a>
                 </div>
             </div>
         </div>
