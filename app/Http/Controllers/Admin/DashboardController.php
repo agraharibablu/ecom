@@ -15,26 +15,7 @@ class DashboardController extends Controller
 
         try {
 
-            $topups = Topup::where('status','pending')->get();
-
-            $topup_request = [];
-            foreach ($topups as $topup) {
-
-                $topup_request[] = (object)[
-                    'id'           => $topup->_id,
-                    'retailer_name'=> $topup->RetailerName['full_name'],
-                    'amount'       => $topup->amount,
-                    'payment_mode' => ucwords(str_replace('_'," ",$topup->payment_mode)),
-                    'status'       => ucwords($topup->status),
-                    'payment_date' => date('y-m-d h:i:s A', $topup->payment_date),
-                    'comment'      => $topup->comment
-                ];
-            }
-            $data['topup_request'] = $topup_request;
-
-
-
-            return view('admin.dashboard', $data);
+            return view('admin.dashboard');
         } catch (Exception $e) {
             return redirect('500');
         }
