@@ -26,11 +26,7 @@
     <!-- header start -->
     @include('frontend.layouts.header')
     <!-- header end -->
-    <!-- offer-container start -->
-    <div class="offer-container">
-        <p>Free Shipping | COD Available</p>
-    </div>
-    <!-- offer-container end -->
+   
 
 
     	<!-- start content -->
@@ -49,6 +45,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.1/dist/boxicons.min.js"></script>
     <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('frontend/js/main-2.js')}}"></script>
+    <script src="{{asset('frontend/js/shuffle.js')}}"></script>
+    <script src="{{asset('frontend/js/filter.js')}}"></script>
     @yield('scripts')
 </body>
 

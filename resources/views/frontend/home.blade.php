@@ -5,6 +5,11 @@ Welcome Rooted Active Naturals
 @endsection
 
 @section('content')
+<!-- offer-container start -->
+<div class="offer-container">
+    <p>Free Shipping | COD Available</p>
+</div>
+<!-- offer-container end -->
 <!-- start content -->
 
 <!-- banner start -->

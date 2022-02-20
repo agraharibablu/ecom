@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
+
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Testimonial;
@@ -9,10 +10,10 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-   
+
     public function __construct()
     {
-       // $this->middleware('auth');
+         $this->middleware('auth');
     }
 
     public function index()
@@ -20,6 +21,13 @@ class HomeController extends Controller
         $data['categories'] = Category::limit(4)->get();
         $data['products'] = Product::limit(3)->get();
         $data['testimonials'] = Testimonial::limit(6)->get();
-        return view('frontend.home',$data);
+        return view('frontend.home', $data);
+    }
+
+    public function products()
+    {
+        $categories = Category::All();
+        $products = Product::All()->where('status', 1);
+        return view('frontend.products')->with('categories', $categories)->with('products', $products);
     }
 }
