@@ -12,6 +12,7 @@
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 
     <!-- boxicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.1/css/boxicons.min.css" />
@@ -27,8 +28,6 @@
     @include('frontend.layouts.header')
     <!-- header end -->
    
-
-
     	<!-- start content -->
    @yield('content')
       	<!-- end content -->
@@ -44,10 +43,12 @@
     <!-- Boxicons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.1/dist/boxicons.min.js"></script>
     <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script src="{{asset('frontend/js/main-2.js')}}"></script>
     <script src="{{asset('frontend/js/shuffle.js')}}"></script>
     <script src="{{asset('frontend/js/filter.js')}}"></script>
     @yield('scripts')
+    
 </body>
 
 </html>

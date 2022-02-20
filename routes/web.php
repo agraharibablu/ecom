@@ -25,6 +25,7 @@ Route::group(['middleware' => 'adminRedirect'], function () {
 
 Route::resource('home', FrontendHome::class);
 Route::get('products', [FrontendHome::class, 'products']);
+Route::get('singleProduct/{id}', [FrontendHome::class, 'singleProduct']);
 
 Route::get('otp-sent',       [AdminLogin::class, 'otpSent']);
 Route::post('verify-mobile', [AdminLogin::class, 'verifyMobile']);

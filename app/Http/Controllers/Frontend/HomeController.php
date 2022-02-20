@@ -30,4 +30,9 @@ class HomeController extends Controller
         $products = Product::All()->where('status', 1);
         return view('frontend.products')->with('categories', $categories)->with('products', $products);
     }
+    public function singleProduct($id)
+    {
+        $products = Product::find($id);
+        return view('frontend.single-product')->with('products', $products);
+    }
 }
