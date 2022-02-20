@@ -232,6 +232,7 @@ Welcome Rooted Active Naturals
     <div class="container-fluid2">
         <div class="row">
             <div id="testimonial-carousel" class="owl-carousel owl-theme">
+                @foreach($testimonials as $testimonial)
                 <div class="item">
                     <div class="testimonials-box bg-1">
                         <div class="testimonials-rating">
@@ -241,123 +242,18 @@ Welcome Rooted Active Naturals
                         </div>
 
                         <div class="testimonial-title">
-                            <h2>Excellent Product</h2>
+                            <h2>{{$testimonial->title}}</h2>
                         </div>
 
                         <div class="testimonial-des">
-                            <p>Great vitamins, love the new recipe, and awesome
-                                customer support. Thank you!</p>
+                            <p>{{$testimonial->description}}</p>
                         </div>
                         <div class="testimonial-name">
-                            <h3>John, 2021</h3>
+                            <h3>{{$testimonial->designation}}</h3>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="testimonials-box bg-2">
-                        <div class="testimonials-rating">
-                            <div class="rating-container">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-title">
-                            <h2>Excellent Product</h2>
-                        </div>
-
-                        <div class="testimonial-des">
-                            <p>Great vitamins, love the new recipe, and awesome
-                                customer support. Thank you!</p>
-                        </div>
-                        <div class="testimonial-name">
-                            <h3>John, 2021</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonials-box bg-1">
-                        <div class="testimonials-rating">
-                            <div class="rating-container">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-title">
-                            <h2>Excellent Product</h2>
-                        </div>
-
-                        <div class="testimonial-des">
-                            <p>Great vitamins, love the new recipe, and awesome
-                                customer support. Thank you!</p>
-                        </div>
-                        <div class="testimonial-name">
-                            <h3>John, 2021</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonials-box bg-2">
-                        <div class="testimonials-rating">
-                            <div class="rating-container">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-title">
-                            <h2>Excellent Product</h2>
-                        </div>
-
-                        <div class="testimonial-des">
-                            <p>Great vitamins, love the new recipe, and awesome
-                                customer support. Thank you!</p>
-                        </div>
-                        <div class="testimonial-name">
-                            <h3>John, 2021</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonials-box bg-1">
-                        <div class="testimonials-rating">
-                            <div class="rating-container">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-title">
-                            <h2>Excellent Product</h2>
-                        </div>
-
-                        <div class="testimonial-des">
-                            <p>Great vitamins, love the new recipe, and awesome
-                                customer support. Thank you!</p>
-                        </div>
-                        <div class="testimonial-name">
-                            <h3>John, 2021</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonials-box bg-2">
-                        <div class="testimonials-rating">
-                            <div class="rating-container">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-title">
-                            <h2>Excellent Product</h2>
-                        </div>
-
-                        <div class="testimonial-des">
-                            <p>Great vitamins, love the new recipe, and awesome
-                                customer support. Thank you!</p>
-                        </div>
-                        <div class="testimonial-name">
-                            <h3>John, 2021</h3>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
