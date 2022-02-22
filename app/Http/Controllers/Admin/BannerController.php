@@ -33,7 +33,7 @@ class BannerController extends Controller
             $banner->name               = $request->name;
             $banner->status             = $request->status;
             $banner->image              = $request->image;
-            $banner->url               = $request->url;      
+            $banner->url                = $request->url;      
             
             //uploade single image
             if (!empty($request->file('thumbnail')))
@@ -67,7 +67,7 @@ class BannerController extends Controller
             $banner->name               = $request->name;
             $banner->status             = $request->status;
             $banner->image              = $request->image;
-            $banner->url               = $request->url;
+            $banner->url                = $request->url;
 
             if (!empty($request->file('thumbnail')))
                 $banner->thumbnail  = singleFile($request->file('thumbnail'), 'attachment/Banner');

@@ -23,9 +23,9 @@ Products Detail Page
         @foreach($products as $product)
         <div class="col-md-4 filter-box" data-groups='["all","{{$product->CategoryName->category_name}}"]'>
             <div class="shop-box bg-1">
-                <div class="shop-img">
+                <a href="{{ url('product/'.$product->_id) }}"><div class="shop-img">
                     <img src="{{ asset('attachment/product/'.$product->thumbnail) }}" class="img-fluid" alt="">
-                </div>
+                </div></a>
                 <div class="cta-container">
                     <a href="#">Add To Cart</a>
                 </div>

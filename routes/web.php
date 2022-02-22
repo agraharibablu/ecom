@@ -10,25 +10,33 @@ use App\Http\Controllers\Admin\TemplateController as AdminTemplate;
 use App\Http\Controllers\Admin\BannerController as AdminBanner;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonial;
 use App\Http\Controllers\Admin\SettingController as AdminSetting;
-use App\Http\Controllers\Frontend\HomeController as FrontendHome;
+use App\Http\Controllers\Frontend\HomeController as Home;
+use App\Http\Controllers\Frontend\ProductsController as Products;
+use App\Http\Controllers\Frontend\ProductController as Product;
+
 
 use App\Http\Controllers\Retailer\LoginController as RetailerLogin;
 
 use Illuminate\Support\Facades\Route;
 
 
+   // Route::get('/login', [AdminLogin::class, 'index']);
 Route::group(['middleware' => 'adminRedirect'], function () {
+ 
     Route::get('/', [AdminLogin::class, 'index']);
     Route::resource('/login', AdminLogin::class);
     Route::resource('/register', RegisterController::class);
 });
 
-Route::resource('home', FrontendHome::class);
-Route::get('products', [FrontendHome::class, 'products']);
-Route::get('singleProduct/{id}', [FrontendHome::class, 'singleProduct']);
+
+Route::get('/', [Home::class,'index']);
+Route::get('products', [Products::class, 'index']);
+Route::get('product/{id}', [Product::class, 'index']);
 
 Route::get('otp-sent',       [AdminLogin::class, 'otpSent']);
 Route::post('verify-mobile', [AdminLogin::class, 'verifyMobile']);
+
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('dashboard', AdminDashboard::class);
@@ -57,6 +65,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::post('logout',  [RetailerLogin::class, 'logout']);
 });
+
+
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('dashboard', AdminDashboard::class);
 

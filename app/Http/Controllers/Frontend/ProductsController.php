@@ -8,7 +8,7 @@ use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class ProductsController extends Controller
 {
 
     public function __construct()
@@ -18,9 +18,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['categories'] = Category::limit(4)->get();
-        $data['products'] = Product::limit(3)->get();
-        $data['testimonials'] = Testimonial::limit(6)->get();
-        return view('frontend.home', $data);
+        $data['categories'] = Category::All();
+        $data['products']   = Product::All()->where('status', 1);
+        return view('frontend.products',$data);
     }
+   
 }

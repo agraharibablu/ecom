@@ -192,7 +192,7 @@ Welcome Rooted Active Naturals
         <div class="row mt-5">
             @foreach($products as $product)
             <div class="col-md-3">
-                <a href="/singleProduct/{{$product->_id}}">
+                <a href="{{ url('product/'.$product->_id)}}">
                     <div class="shop-box bg-1">
                         <div class="shop-img">
                             <img src="{{asset('attachment/product/'.$product->thumbnail)}}" class="img-fluid" alt="">
@@ -205,7 +205,7 @@ Welcome Rooted Active Naturals
 
             <div class="col-md-3">
                 <div class="shop-btn-container">
-                    <a href="/products" class="shop-btn">Shop All</a>
+                    <a href="{{ url('products') }}" class="shop-btn">Shop All</a>
                 </div>
             </div>
         </div>

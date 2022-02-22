@@ -90,6 +90,13 @@
 
           </div>
         </div>
+        <div class="form-group">
+            <label>Status</label>
+            <select class="form-control" name="status" id="status">
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
+            </select>
+          </div>
       </div>
       <div class="col-md-12">
         <div class="form-group text-center">

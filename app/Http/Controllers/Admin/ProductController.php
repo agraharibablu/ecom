@@ -40,11 +40,12 @@ class ProductController extends Controller
         try {
             $product = new Product();
             $product->product_name = $request->product_name;
-            $product->price       = $request->price;
-            $product->category    = $request->category;
-            $product->tag         = $request->tag;
-            $product->description = $request->description;
-            $product->status      = 1;
+            $product->price        = $request->price;
+            $product->category     = $request->category;
+            $product->tag          = $request->tag;
+            $product->description  = $request->description;
+            $product->slug_url     = str_replace(' ', '_', $request->product_name);
+            $product->status       = $request->status;
 
             //for uploading single image
             if (!empty($request->file('thumbnail')))
@@ -84,11 +85,13 @@ class ProductController extends Controller
 
         try {
             $product =  Product::find($id);
-            $product->product_name = $request->product_name;
+            $product->product_name= $request->product_name;
             $product->price       = $request->price;
             $product->category    = $request->category;
             $product->tag         = $request->tag;
             $product->description = $request->description;
+            $product->slug_url   = str_replace(' ', '_', $request->product_name);
+            $product->status      = $request->status;
 
             //for single product update
             if (!empty($request->file('thumbnail')))
